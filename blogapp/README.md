@@ -106,4 +106,5 @@ License
 This project is licensed under the MIT License. See LICENSE for details.
 
 Author
-BHARATH M H – GitHub Profile
+**Bharath M H** – [GitHub Profile](https://github.com/BHARATH1408)
+
