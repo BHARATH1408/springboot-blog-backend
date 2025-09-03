@@ -1,0 +1,55 @@
+### Maven ###
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### Logs ###
+*.log
+
+### OS-specific files ###
+.DS_Store
+Thumbs.db
+
+### Spring Boot Configs (keep examples only) ###
+application-*.yml
+application-*.yaml
+application-*.properties
+
+# Example file to keep in repo (for reference)
+!application-example.properties
+!application-example.yml
+
+### STS (Spring Tool Suite / Eclipse) ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Other ###
+/out/
+
+# Ignore real config
+src/main/resources/application.properties
