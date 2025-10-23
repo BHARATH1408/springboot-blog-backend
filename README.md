@@ -124,13 +124,13 @@ mvn clean verify
 
 📜 License
 
-This project is licensed under the MIT License.
-See the LICENSE
- file for more details.
+This project is licensed under the MIT License
+.
+You are free to use, modify, and distribute this project with attribution.
 
 👤 Author
 
 Bharath M H
-📧 GitHub Profile
+🔗 GitHub Profile
 
 💬 Passionate about backend development and Spring Boot microservices.
