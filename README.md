@@ -1,110 +1,136 @@
-# Blog Backend (Spring Boot + JWT)
+# 📰 Spring Boot Blog Backend
 
 ![Java](https://img.shields.io/badge/Java-17-blue?logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.2.5-green?logo=springboot)
 ![Maven](https://img.shields.io/badge/Maven-3.9.3-orange?logo=apachemaven)
-![Build Status](https://img.shields.io/badge/Build-Success-brightgreen)
+![JWT](https://img.shields.io/badge/Security-JWT-brightgreen?logo=jsonwebtokens)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
+![Build](https://img.shields.io/badge/Build-Success-success)
 ![Database](https://img.shields.io/badge/Database-H2-blue)
 
 ---
 
-## Project Description
+## 📘 Overview
 
-This is a **Spring Boot Blog Backend Application** built with JWT-based authentication and authorization. The project supports:
+**Spring Boot Blog Backend** is a secure, scalable REST API built with **Spring Boot**, featuring **JWT-based authentication**, **robust validation**, and **exception handling**.  
+It powers a simple blog platform supporting user registration, authentication, and CRUD operations on posts.
 
-- User registration and login
-- JWT-based authentication for secure API access
-- CRUD operations on blog posts
-- Global exception handling
-- Input validation
-- Integration with H2 in-memory database for development
-- Swagger/OpenAPI documentation for testing APIs
+This project follows a clean architecture with modular packages for configuration, controllers, services, repositories, and models — making it ideal as a learning reference or a production-ready base.
 
 ---
 
-## Features
+## ✨ Key Features
 
-- **Authentication & Authorization:** JWT token-based security for protected endpoints  
-- **Post Management:** Create, Read, Update, Delete blog posts  
-- **Validation:** Ensures title and content follow business rules  
-- **Exception Handling:** Global error handler with meaningful messages  
-- **API Documentation:** Swagger UI to test endpoints
-
----
-
-## Tech Stack
-
-- **Java 17**  
-- **Spring Boot 3.2.5**  
-- **Spring Security**  
-- **JWT (JSON Web Token)**  
-- **Spring Data JPA / Hibernate**  
-- **H2 In-memory Database**  
-- **Maven**  
-- **Swagger/OpenAPI**  
+✅ **User Authentication & Authorization** — Secure endpoints using Spring Security & JWT  
+✅ **CRUD Blog Management** — Create, read, update, and delete blog posts  
+✅ **Validation & Error Handling** — Centralized via `GlobalExceptionHandler`  
+✅ **Swagger UI** — Explore and test APIs interactively  
+✅ **H2 Database** — In-memory DB for quick development and testing  
+✅ **Comprehensive Testing** — Includes unit and integration test coverage  
 
 ---
 
-## Installation & Setup
+## 🧱 Project Structure
 
-1. **Clone the repository:**
+com.blog.blogapp
+├── BlogappApplication.java # Main Spring Boot entry point
+├── config/
+│ └── SwaggerConfig.java # Swagger/OpenAPI setup
+├── controller/
+│ ├── AuthController.java # Handles login & registration
+│ └── PostController.java # Handles blog post CRUD operations
+├── exception/
+│ ├── GlobalExceptionHandler.java # Centralized exception handling
+│ ├── ErrorResponse.java
+│ ├── ResourceNotFoundException.java
+│ └── InvalidSortFieldException.java
+├── model/
+│ └── Post.java # Entity class for posts
+├── repository/
+│ ├── PostRepository.java
+│ └── UserRepository.java
+├── security/
+│ ├── JwtAuthenticationFilter.java
+│ └── SecurityConfiguration.java
+├── service/
+│ ├── PostService.java
+│ └── CustomUserDetailsService.java
+└── user/
+└── User.java # User entity
 
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the Repository
 ```bash
-git clone https://github.com/your-username/blog-backend.git
-cd blog-backend
-Build the project using Maven:
+git clone https://github.com/BHARATH1408/springboot-blog-backend.git
+cd springboot-blog-backend
 
-bash
-Copy code
+2️⃣ Build and Run
 mvn clean install
-Run the application:
-
-bash
-Copy code
 mvn spring-boot:run
-Access H2 Database Console (for development):
-Open http://localhost:8080/h2-console
+
+3️⃣ Access Swagger UI
+http://localhost:8080/swagger-ui/index.html
+
+4️⃣ Access H2 Database Console
+http://localhost:8080/h2-console
+
 
 JDBC URL: jdbc:h2:mem:blogdb
-
 Username: sa
-
 Password: (leave blank)
 
-Swagger UI:
-Open http://localhost:8080/swagger-ui/index.html to explore and test APIs.
+🧩 API Endpoints
+🔐 Authentication
+Method	Endpoint	Description
+POST	/auth/register	Register a new user
+POST	/auth/login	Authenticate user and get JWT token
+📝 Posts
+Method	Endpoint	Description	Auth Required
+GET	/posts	Get all posts	❌ No
+GET	/posts/{id}	Get post by ID	❌ No
+POST	/posts	Create new post	✅ Yes
+PUT	/posts/{id}	Update post	✅ Yes
+DELETE	/posts/{id}	Delete post	✅ Yes
 
-Usage
-Public APIs
-POST /auth/register → Register a new user
+Use the “Authorize” button in Swagger UI to input your JWT token for protected routes.
 
-POST /auth/login → Login and get JWT token
+🧪 Testing
 
-GET /posts → List all posts (public)
+The project includes:
 
-Protected APIs (JWT Required)
-POST /posts → Create a new post
+Unit tests (e.g. JwtUtilTest.java)
 
-PUT /posts/{id} → Update a post
-
-DELETE /posts/{id} → Delete a post
-
-Use the Authorize button in Swagger UI to input your JWT token for protected APIs.
-
-Testing
-Unit tests and integration tests are included
+Integration tests (e.g. PostControllerIntegrationTest.java)
 
 Run all tests:
 
-bash
-Copy code
 mvn clean verify
-Ensure all tests pass before committing.
 
-License
-This project is licensed under the MIT License. See LICENSE for details.
+🔄 Recent Changes
 
-Author
-**Bharath M H** – [GitHub Profile](https://github.com/BHARATH1408)
+🛡️ Implemented JWT authentication and request filtering
 
+🧰 Added global exception handling with detailed error responses
+
+🧾 Integrated Swagger for API documentation
+
+🧪 Added JUnit tests for authentication and post APIs
+
+🧱 Refactored service layer for better modularity
+
+📜 License
+
+This project is licensed under the MIT License.
+See the LICENSE
+ file for more details.
+
+👤 Author
+
+Bharath M H
+📧 GitHub Profile
+
+💬 Passionate about backend development and Spring Boot microservices.
